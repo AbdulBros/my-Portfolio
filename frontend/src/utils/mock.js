@@ -25,12 +25,12 @@ export const mockData = {
     {
       category: 'Programming',
       icon: <Code size={28} />,
-      skills: ['Python', 'JavaScript', 'SQL']
+      skills: ['Python', 'JavaScript', 'SQL', 'Java']
     },
     {
-      category: 'Web Development',
+      category: 'Web & App Development',
       icon: <Code size={28} />,
-      skills: ['HTML5', 'CSS3', 'React.js', 'WordPress']
+      skills: ['HTML5', 'CSS3', 'React.js', 'WordPress', 'Android Development']
     },
     {
       category: 'Database',
@@ -43,13 +43,26 @@ export const mockData = {
       skills: ['VS Code', 'Android Studio', 'Git', 'MS Office']
     },
     {
-      category: 'Concepts',
-      icon: <Briefcase size={28} />,
-      skills: ['OOP', 'Debugging', 'AI Prompt Engineering']
+      category: 'AI & Concepts',
+      icon: <Brain size={28} />,
+      skills: ['AI Prompt Engineering', 'Conversational AI', 'Afifa AI Assistant', 'OOP', 'Debugging']
     }
   ],
 
   projects: [
+    {
+      title: 'Afifa AI Assistant',
+      tech: ['AI', 'App Development', 'Conversational AI', 'Prompt Engineering'],
+      description: 'An intelligent AI-powered assistant application designed to provide personalized assistance and automate tasks through natural language conversations. Features advanced AI capabilities for enhanced user experience.',
+      link: 'https://afifa-assistant.preview.emergentagent.com/',
+      featured: true,
+      highlights: [
+        'Advanced conversational AI interface',
+        'Personalized AI assistance',
+        'Natural language processing',
+        'Real-time intelligent responses'
+      ]
+    },
     {
       title: 'AI Job Assistance Platform',
       tech: ['AI', 'Prompt Engineering', 'Web Application'],
@@ -93,7 +106,7 @@ export const mockData = {
     {
       degree: 'Bachelor of Computer Applications (BCA)',
       institution: 'C. Abdul Hakeem College',
-      cgpa: '7.3'
+      cgpa: '7.9'
     }
   ],
 

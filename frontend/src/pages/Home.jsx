@@ -296,10 +296,10 @@ const Home = () => {
                     </a>
                   </div>
                   <div className="social-links">
-                    <a href="#" className="social-link" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/abdul-irfan-bbb350357" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                       <Linkedin size={24} />
                     </a>
-                    <a href="#" className="social-link" aria-label="GitHub">
+                    <a href="https://github.com/AbdulBros" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
                       <Github size={24} />
                     </a>
                     <a href="mailto:abdulirfanal8870@gmail.com" className="social-link" aria-label="Email">
@@ -361,8 +361,8 @@ const Home = () => {
             © 2025 Abdul Irfan A. Built with passion and modern technologies.
           </p>
           <div className="footer-links">
-            <a href="#" className="footer-link">LinkedIn</a>
-            <a href="#" className="footer-link">GitHub</a>
+            <a href="https://www.linkedin.com/in/abdul-irfan-bbb350357" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+            <a href="https://github.com/AbdulBros" target="_blank" rel="noopener noreferrer" className="footer-link">GitHub</a>
             <a href="mailto:abdulirfanal8870@gmail.com" className="footer-link">Email</a>
           </div>
         </div>
