@@ -59,10 +59,11 @@
   "node": "20.x"
 },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
-  },
+  "start": "craco start",
+  "build": "rimraf node_modules/fork-ts-checker-webpack-plugin/node_modules/ajv-keywords && craco build",
+  "test": "craco test",
+  "postinstall": "rimraf node_modules/fork-ts-checker-webpack-plugin/node_modules/ajv-keywords"
+},
   "browserslist": {
     "production": [
       ">0.2%",
@@ -88,7 +89,8 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "globals": "15.15.0",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "rimraf": "^5.0.5"
   },
   "overrides": {
   "ajv": "^8.17.1",
