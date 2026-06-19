@@ -36,12 +36,15 @@ let webpackConfig = {
     },
   },
   webpack: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
-    configure: (webpackConfig) => {
+  alias: {
+    '@': path.resolve(__dirname, 'src'),
+  },
+  plugins: {
+    remove: ["ForkTsCheckerWebpackPlugin", "ForkTsCheckerWarningWebpackPlugin"],
+  },
+  configure: (webpackConfig) => {
 
-  // Add ignored patterns to reduce watched directories
+    // Add ignored patterns to reduce watched directories
     webpackConfig.watchOptions = {
       ...webpackConfig.watchOptions,
       ignored: [
@@ -51,25 +54,21 @@ let webpackConfig = {
         '**/dist/**',
         '**/coverage/**',
         '**/public/**',
-    ],
-  };
+      ],
+    };
 
-  // Add health check plugin to webpack if enabled
-  if (config.enableHealthCheck && healthPluginInstance) {
-    webpackConfig.plugins.push(healthPluginInstance);
-  }
+    if (config.enableHealthCheck && healthPluginInstance) {
+      webpackConfig.plugins.push(healthPluginInstance);
+    }
 
-  // Remove ForkTsCheckerWebpackPlugin — it's crashing the build
-  // due to an ajv-keywords version conflict, and this is a JS-only
-  // project so TypeScript checking isn't needed anyway.
-  webpackConfig.plugins = webpackConfig.plugins.filter(
-    (plugin) => plugin.constructor.name !== "ForkTsCheckerWebpackPlugin"
-  );
+    webpackConfig.plugins = webpackConfig.plugins.filter(
+      (plugin) => plugin.constructor.name !== "ForkTsCheckerWebpackPlugin"
+    );
 
-  return webpackConfig;
-},
+    return webpackConfig;
   },
-};
+},
+}
 
 webpackConfig.devServer = (devServerConfig) => {
   // Add health check endpoints if enabled
