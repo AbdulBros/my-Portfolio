@@ -38,25 +38,33 @@ let webpackConfig = {
     },
     configure: (webpackConfig) => {
 
-      // Add ignored patterns to reduce watched directories
-        webpackConfig.watchOptions = {
-          ...webpackConfig.watchOptions,
-          ignored: [
-            '**/node_modules/**',
-            '**/.git/**',
-            '**/build/**',
-            '**/dist/**',
-            '**/coverage/**',
-            '**/public/**',
-        ],
-      };
+  // Add ignored patterns to reduce watched directories
+    webpackConfig.watchOptions = {
+      ...webpackConfig.watchOptions,
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/build/**',
+        '**/dist/**',
+        '**/coverage/**',
+        '**/public/**',
+    ],
+  };
 
-      // Add health check plugin to webpack if enabled
-      if (config.enableHealthCheck && healthPluginInstance) {
-        webpackConfig.plugins.push(healthPluginInstance);
-      }
-      return webpackConfig;
-    },
+  // Add health check plugin to webpack if enabled
+  if (config.enableHealthCheck && healthPluginInstance) {
+    webpackConfig.plugins.push(healthPluginInstance);
+  }
+
+  // Remove ForkTsCheckerWebpackPlugin — it's crashing the build
+  // due to an ajv-keywords version conflict, and this is a JS-only
+  // project so TypeScript checking isn't needed anyway.
+  webpackConfig.plugins = webpackConfig.plugins.filter(
+    (plugin) => plugin.constructor.name !== "ForkTsCheckerWebpackPlugin"
+  );
+
+  return webpackConfig;
+},
   },
 };
 
